@@ -56,8 +56,9 @@ function updateBallPosition(simulation) {
 }
 
 function animate() {
-    simulation.update(0.1);  // Update with a time step
     console.log(simulation.state);
+    simulation.update(0.1);  // Update with a time step
+    
     updateBallPosition(simulation);
     requestAnimationFrame(animate);  // Continue animation
 }
