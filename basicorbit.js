@@ -32,6 +32,8 @@ class BasicOrbitSimulation{
 
         // magnitude of acceleration given by 
         const mag_acceleration = this.sun_mass*this.grav_constant*(1/r_squared);
+        console.log("  a: ", mag_acceleration);
+        console.log("r^2: ", r_squared)
 
         new_state[2] = this.state[2] + d_time*mag_acceleration*unit_direction_grav[0];
         new_state[3] = this.state[3] + d_time*mag_acceleration*unit_direction_grav[1];
@@ -55,11 +57,12 @@ function updateBallPosition(simulation) {
 
 function animate() {
     simulation.update(0.1);  // Update with a time step
+    console.log(simulation.state);
     updateBallPosition(simulation);
     requestAnimationFrame(animate);  // Continue animation
 }
 
-const initialState = [0, 0, 1, 0];  // Example state [x, y, vx, vy]
-const simulation = new BasicOrbitSimulation(initialState, 1, 1);
+const initialState = [-150, 0, 0, 8];  // Example state [x, y, vx, vy]
+const simulation = new BasicOrbitSimulation(initialState, 1000, 10);
 
 animate();
