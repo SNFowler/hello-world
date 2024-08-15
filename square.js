@@ -7,3 +7,4 @@ function calculateSquare() {
         document.getElementById('result').textContent = 'Please enter a number between 1 and 4.';
     }
 }
+
