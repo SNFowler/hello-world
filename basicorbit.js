@@ -40,6 +40,7 @@ class BasicOrbitSimulation{
         
         // update state
         this.state = new_state;
+        this.time = this.time + d_time;
     }
 }
 
@@ -62,6 +63,8 @@ function animate() {
     updateBallPosition(simulation);
     requestAnimationFrame(animate);  // Continue animation
 }
+
+console.log("Beginning simulation")
 
 const initialState = [-150, 0, 0, 8];  // Example state [x, y, vx, vy]
 const simulation = new BasicOrbitSimulation(initialState, 1000, 10);
